@@ -1,30 +1,46 @@
 // Your code here
-const dodger = document.getElementById("dodger");
+
+const dodger = document.getElementById('dodger')
+
+dodger.style.backgroundColor= "lavender";
+
+dodger.style.bottom = "0px"
+// dodger.style.left = "0px"
+
+// document.addEventListener("keydown", function (event) {
+//         if(event.key === "ArrowLeft"){
+//             const leftNumbers = dodger.style.left.replace("px", "");
+//             const left = parseInt(leftNumbers, 10);
+//             if(left > 0){
+//             dodger.style.left = `${left -10}px`;
+//             }
+//         }
+// });
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft"){
+        moveDodgerLeft();
+    }
+    else if(e.key === "ArrowRight"){
+        moveDodgerRight();
+    }
+})
 
 function moveDodgerLeft() {
     const leftNumbers = dodger.style.left.replace("px", "");
     const left = parseInt(leftNumbers, 10);
     
-    if (left > 0) {
-    dodger.style.left = `${left - 1}px`;
+    if (left > 0){
+        dodger.style.left = `${left -10}px`;
     }
+
 }
 
-function moveDodgerRight(){
+function moveDodgerRight() {
     const rightNumbers = dodger.style.left.replace("px", "");
-    const right = parseInt(rightNumbers, 10);
+    const left = parseInt(rightNumbers, 10);
 
-    if ( right < 360){
-        dodger.style.left = `${right +1}px`;
+    if (left < 360){
+        dodger.style.left = `${left + 10}px`;
     }
-
 }
-
-document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") {
-      moveDodgerLeft();
-    }
-    else if (e.key === "ArrowRight"){
-        moveDodgerRight();
-    }
-  });
